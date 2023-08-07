@@ -26,6 +26,7 @@ namespace TaxaaOpgave
         {
             double startPris;
             double distancePris;
+            double destinationPris;
             double prisPerMinut = 5.75;
             double passagertillæg = 5.75; // tillæg per passagere
 
@@ -42,21 +43,28 @@ namespace TaxaaOpgave
             }
 
             // Anvend tillægget pr. passager på startprisen
+            // Test
             int AntalafPassagere = (int)numericUpDownPassagere.Value;
             startPris += (AntalafPassagere - 1) * passagertillæg;
 
             // Få afstanden i km og varigheden i minutter fra tekstfelterne
-            if (!double.TryParse(Distance.Text, out double distance) && !double.TryParse(Duration.Text, out double duration))
+            var succes = double.TryParse(textBox4.Text, out double duration);
+            var succesDistance = double.TryParse(textBox3.Text, out double distance);
+            string destination = textBox2.Text;
+
+            if (succesDistance && succes && !string.IsNullOrEmpty(destination))
             {
                 double totalDistancePris = distance * distancePris;
                 double totalTimePris = duration * prisPerMinut;
+                double destinationPrisPerEnhed = 10.0;
+                double totalDestinationPris = destination.Length * destinationPrisPerEnhed;
 
 
                 // Beregn det samlede passagertillæg
                 double totalPassageretillæg = (AntalafPassagere - 1) * passagertillæg;
 
                 // Beregn den samlede pris ved at lægge alle komponenter sammen
-                double totalPris = startPris + totalDistancePris + totalTimePris + totalPassageretillæg; 
+                double totalPris = startPris + totalDistancePris + totalTimePris + totalDestinationPris + totalPassageretillæg; 
 
                 // Opdater pris label
                 ForventetPris.Text = "Forventet Pris: " + totalPris.ToString("C"); // Vis pris i lokal valuta
@@ -69,8 +77,8 @@ namespace TaxaaOpgave
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string startPoint = StartPoint.Text.Replace(" ", "+");
-            string destination = Destination.Text.Replace(" ", "+");
+            string startPoint = textBox1.Text.Replace(" ", "+");
+            string destination = textBox2.Text.Replace(" ", "+");
 
             string googleMapsUrl = $"https://www.google.com/maps/dir/{startPoint}/{destination}";
             System.Diagnostics.Process.Start(googleMapsUrl);

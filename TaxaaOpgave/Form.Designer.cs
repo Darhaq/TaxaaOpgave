@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartPoint = new System.Windows.Forms.Label();
+            this.StartPris = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.Destination = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -47,14 +47,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPassagere)).BeginInit();
             this.SuspendLayout();
             // 
-            // StartPoint
+            // StartPris
             // 
-            this.StartPoint.AutoSize = true;
-            this.StartPoint.Location = new System.Drawing.Point(12, 12);
-            this.StartPoint.Name = "StartPoint";
-            this.StartPoint.Size = new System.Drawing.Size(56, 13);
-            this.StartPoint.TabIndex = 1;
-            this.StartPoint.Text = "StartPoint:";
+            this.StartPris.AutoSize = true;
+            this.StartPris.Location = new System.Drawing.Point(12, 12);
+            this.StartPris.Name = "StartPris";
+            this.StartPris.Size = new System.Drawing.Size(49, 13);
+            this.StartPris.TabIndex = 1;
+            this.StartPris.Text = "StartPris:";
             // 
             // textBox1
             // 
@@ -208,7 +208,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.Destination);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.StartPoint);
+            this.Controls.Add(this.StartPris);
             this.Name = "Form1";
             this.Text = "Taxa";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownPassagere)).EndInit();
@@ -219,7 +219,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label StartPoint;
+        private System.Windows.Forms.Label StartPris;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Destination;
         private System.Windows.Forms.TextBox textBox2;
